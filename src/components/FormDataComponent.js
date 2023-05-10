@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Tab from "react-bootstrap/Tab";
@@ -110,36 +111,32 @@ export default function FormDataComponent() {
         <Form.Group className="mb-3" controlId="formGroupTitle">
           <Form.Label>Title</Form.Label>
           <Form.Control
-            type="text"
-            placeholder="Enter title"
+            as="textarea"
+            rows={3}
             ref={refTitle}
             onChange={(e) => setMemTitle(e.target.value)}
           />
         </Form.Group>
-        <Button variant="primary" onClick={handleAdd} type="button">
-          Add Memory
-        </Button>{" "}
-        <Button
-          variant="outline-success"
-          onClick={handleExport}
-          type="button"
-          ref={refSaveBtn}
-        >
-          Export to file
-        </Button>{" "}
-        <Form.Control
-          ref={refFileInput}
-          onChange={handleImport}
-          type="file"
-          style={{ display: "none" }}
-        />
-        <Button
-          variant="outline-warning"
-          onClick={() => refFileInput.current.click()}
-          type="button"
-        >
-          Import from file
-        </Button>
+        <div className="text-center">
+          <ButtonGroup aria-label="Speech Memory">
+            <Button
+              variant="secondary"
+              onClick={handleAdd}
+              type="button"
+              size="lg"
+            >
+              Start Speech
+            </Button>
+            <Button
+              variant="primary"
+              onClick={handleAdd}
+              type="button"
+              size="lg"
+            >
+              Add Memory
+            </Button>
+          </ButtonGroup>
+        </div>
       </Form>
       <div>
         <hr />
@@ -156,6 +153,32 @@ export default function FormDataComponent() {
             <ItemTimelineComponent itemList={sortListByDate(memItemList)} />
           </Tab>
         </Tabs>
+
+        <div className="float-end">
+          <ButtonGroup aria-label="Import/Export">
+            <Button
+              variant="outline-success"
+              onClick={handleExport}
+              type="button"
+              ref={refSaveBtn}
+            >
+              Export
+            </Button>
+            <Form.Control
+              ref={refFileInput}
+              onChange={handleImport}
+              type="file"
+              style={{ display: "none" }}
+            />
+            <Button
+              variant="outline-warning"
+              onClick={() => refFileInput.current.click()}
+              type="button"
+            >
+              Import
+            </Button>
+          </ButtonGroup>
+        </div>
 
         {/**
          * console.log(JSON.stringify(memItemList, null, "\t"))
