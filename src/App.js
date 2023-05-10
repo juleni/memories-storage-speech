@@ -6,7 +6,7 @@ import FormDataComponent from "./components/FormDataComponent";
 function App() {
   return (
     <div className="App">
-      <h3>Speech Memories Local Storage</h3>
+      <h3>Speech Memories</h3>
       <FormDataComponent />
     </div>
   );
