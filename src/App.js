@@ -1,13 +1,17 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import FormDataComponent from "./components/FormDataComponent";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div className="App">
-      <h3>Speech Memories</h3>
-      <FormDataComponent />
+      <Container fluid>
+        <Header />
+        <FormDataComponent />
+      </Container>
     </div>
   );
 }
