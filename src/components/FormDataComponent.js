@@ -154,7 +154,7 @@ export default function FormDataComponent() {
           </Tab>
         </Tabs>
 
-        <div className="float-end">
+        <div className="float-end mt-3 mb-3">
           <ButtonGroup aria-label="Import/Export">
             <Button
               variant="outline-success"
